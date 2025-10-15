@@ -14,7 +14,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-df = pd.read_csv('travel_data_up.csv')
+df = pd.read_csv('travel_recommendation/data/travel_data_up.csv')
 df['features'] = df['Type'] + " " + df['Description']
 
 vectorizer = TfidfVectorizer(stop_words='english')
