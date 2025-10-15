@@ -73,8 +73,20 @@ if not df.empty and cosine_sim is not None:
                     st.markdown(f"*Type:* **{rec['Type']}**")
                     st.markdown(f"*About:* {rec['Description']}")
                     
-                    # This line is now set up to use the public URL from your corrected CSV
-                    st.image(rec['Images'], caption=rec['Destination']) 
+                    # ----------------------------------------------------
+                    # 🔑 FIX: Switched from st.image() to st.markdown() 
+                    # for robust image display from GitHub Raw URLs.
+                    # ----------------------------------------------------
+                    st.markdown(
+                        f"""
+                        <div style='text-align: center;'>
+                            <img src='{rec['Images']}' alt='{rec['Destination']}' style='max-width: 100%; height: auto; border-radius: 8px;'>
+                            <p style='font-style: italic; font-size: 0.9em;'>{rec['Destination']}</p>
+                        </div>
+                        """, 
+                        unsafe_allow_html=True
+                    )
+                    
                     st.markdown("---")
             else:
                 st.error("No similar recommendations found.")
