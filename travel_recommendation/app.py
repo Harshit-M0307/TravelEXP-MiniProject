@@ -49,7 +49,7 @@ if st.button("Recommend Similar Places"):
             st.subheader(rec['Destination'] + f" ({rec['Country']})")
             st.markdown(f"*Type:* **{rec['Type']}**")
             st.markdown(f"*About:* {rec['Description']}")
-            st.image(rec['Image'],caption=rec['Destination'])
+            st.image(rec['Images'],caption=rec['Destination'])
             st.markdown("---")
 
 
